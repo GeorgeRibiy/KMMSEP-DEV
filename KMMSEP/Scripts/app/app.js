@@ -9,6 +9,7 @@ app.config(["$routeProvider", function ($routeProvider) {
         })
         .when('/Home', {
             templateUrl: 'Views/Home.html',
+            controller: 'HomeController',
             data: {
                 privateData: true
             }

@@ -1,4 +1,13 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,600,700,300,800);
+﻿@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,600,700,300,800);
+
+@font-face {
+	font-family: 'Conv_Uni Sans Thin';
+	src: url('../fonts/UniSansThin.eot');
+	src: local('☺'), url('../fonts/UniSansThin.woff') format('woff'), url('../fonts/UniSansThin.ttf') format('truetype'), url('../fonts/UniSansThin.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
 
 
 /*************************
@@ -7,7 +16,7 @@
 
 body {
   background: #fff;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Conv_Uni Sans Thin', sans-serif;
   color:#4e4e4e;
   line-height: 22px;
 }
@@ -376,12 +385,22 @@ input.search-form:hover {
   padding: 0;
 }
 
-#main-slider .carousel .carousel-content {
+#main-slider .carousel .carousel-content2 {
   margin-top: 150px;
 }
 
-#main-slider .carousel .slide-margin{
+#main-slider .carousel .carousel-content {
+  margin-top: 150px;
+  margin-left: 25px;
+  padding-bottom: 15px;
+}
+
+#main-slider .carousel .slide-margin2{
   margin-top: 140px;
+}
+
+#main-slider .carousel .slide-margin{
+  margin-top: 21%;
 }
 
 #main-slider .carousel h2 {
@@ -2342,7 +2361,7 @@ ul.sidebar-gallery {
 
 #comments_title{
    color:#4e4e4e;
-   font-weight:700px;
+   font-weight:700;
    font-size:20px;
    margin-top:60px;
    margin-bottom:40px;
@@ -2540,14 +2559,17 @@ shortcodes page css
 
 .nav-centered {
     display: table;
-    float:none;
-    margin-left: auto;
-    margin-right: auto;
+    float:none !important ;
+    margin: 12px auto 0 !important;
 }
 
 .bg-grey-transparent {
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 5px;
+}
+
+.item-override {
+    height: 91vh !important;
 }
 
 

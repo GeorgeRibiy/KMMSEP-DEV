@@ -1,11 +1,14 @@
 jQuery(function($) {'use strict',
 
 	//#main-slider
-	$(function(){
-		$('#main-slider.carousel').carousel({
-			interval: 8000
-		});
-	});
+	//$(function () {
+	//    $(document).ready(function () {
+	//        $('#main-slider .carousel').carousel({
+	//            interval: 2000
+	//        });
+	//        console.log($('#main-slider .carousel').html());
+	//    })
+	//});
 
 
 	// accordian

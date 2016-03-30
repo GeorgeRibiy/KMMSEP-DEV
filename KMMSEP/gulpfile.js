@@ -25,8 +25,8 @@ gulp.task('styles', function () {
 
 // Concatenate & Minify JS
 gulp.task('scripts', function () {
-    return gulp.src(['Scripts/jquery/jquery.js', 'Scripts/jquery/jquery.prettyPhoto.js', 'Scripts/jquery/jquery.isotope.js', 'Scripts/jquery/*js',
-        'Scripts/bootstrap/*.js', 'Scripts/angular/angular.js', 'Scripts/angular/angular-route.js', 'Scripts/app/*.js', 'Scripts/app/Controllers/*.js'])
+    return gulp.src(['Scripts/jquery/jquery.js', 'Scripts/bootstrap/bootstrap.js', 'Scripts/jquery/jquery.prettyPhoto.js', 'Scripts/jquery/jquery.isotope.min.js', 'Scripts/jquery/main.js', 'Scripts/jquery/wow.min.js'
+        ,'Scripts/angular/angular.js', 'Scripts/angular/angular-route.js', 'Scripts/app/*.js', 'Scripts/app/Controllers/*.js'])
         .pipe(concat('all.js', { newLine: "\n;" }))
         .pipe(gulp.dest('dist'))
         .pipe(rename('all.min.js'))
