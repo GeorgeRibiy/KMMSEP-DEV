@@ -79,9 +79,11 @@
     <Content Include="gulpfile.js" />
     <Content Include="Scripts\angular\angular-route.js" />
     <Content Include="Scripts\angular\angular.js" />
+    <Content Include="Scripts\angular\bb15da28.scripts.js" />
     <Content Include="Scripts\app\app.js" />
     <Content Include="Scripts\app\Controllers\HomeController.js" />
     <Content Include="Scripts\app\Controllers\IndexController.js" />
+    <Content Include="Scripts\app\Controllers\ScheduleController.js" />
     <Content Include="Scripts\bootstrap\bootstrap.js" />
     <Content Include="Scripts\html5shiv.js" />
     <Content Include="Scripts\jquery\jquery.isotope.min.js" />
@@ -102,11 +104,11 @@
     <Content Include="Views\Home.html" />
     <Content Include="Views\Index.html" />
     <Content Include="Views\Photos.html" />
+    <Content Include="Views\Schedule.html" />
     <Content Include="Views\Stuff.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
