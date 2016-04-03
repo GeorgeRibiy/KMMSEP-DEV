@@ -1,4 +1,4 @@
-﻿var app = angular.module('HighModule', ['ngRoute', 'angularSmoothscroll']);
+﻿var app = angular.module('HighModule', ['ngRoute', 'angularSmoothscroll', 'ngMaterial']);
 app.config(["$routeProvider", function ($routeProvider) {
     $routeProvider
         .when('/', {

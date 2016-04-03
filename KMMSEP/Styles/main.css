@@ -484,6 +484,18 @@ input.search-form:hover {
   right: 10px;
 }
 
+#main-slider .carousel-indicators {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    z-index: 15;
+    width: 60%;
+    padding-left: 0;
+    margin-left: -30%;
+    text-align: center;
+    list-style: none;
+}
+
 #main-slider .carousel-indicators li {
   width: 20px;
   height: 20px;
@@ -692,7 +704,7 @@ input.search-form:hover {
 }
 
 #services {
-  background: #000 url(../images/services/bg_services.png);
+  background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(../images/sky.jpg);
   background-size: cover;
 }
 
@@ -710,7 +722,7 @@ input.search-form:hover {
 
 .services-wrap h3 {
   font-size: 20px;
-  margin: 10px 0;
+  margin: 0 0 10px;
 }
 
 .services-wrap .pull-left {
@@ -1575,8 +1587,33 @@ ul.social_icons li  a i{
   margin-top: 15px;
 }
 
-/**************************
-*****Schedule CSS**********
+/***************************
+*****Advertisement CSS******
+***************************/
+
+.advert {
+    min-height:380px;
+}
+
+.img_advert {
+    padding-bottom: 15px;
+}
+
+/***************************
+*****Modal CSS******
+***************************/
+
+.modal-cancel {
+    position:absolute;
+    right:0;
+    top:0;
+    margin-right: 8px;
+    margin-top: 5px;
+    font-size: 15px;
+}
+
+/***************************
+*****Schedule CSS***********
 ***************************/
 
 .schedule-block {

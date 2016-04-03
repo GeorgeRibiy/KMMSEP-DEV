@@ -24,7 +24,7 @@
 
             <div class="item item-override" style="background-image: url(../images/university.jpg)">
                 <div class="container">
-                    <div class="row slide-margin">
+                    <div class="row slide-margin bg-grey-transparent">
                         <div class="col-sm-6">
                             <div class="carousel-content">
                                 <h1 class="animation animated-item-1">Lorem ipsum dolor sit amet consectetur adipisicing elit</h1>
@@ -39,7 +39,7 @@
 
             <div class="item item-override" style="background-image: url(../images/university.jpg)">
                 <div class="container">
-                    <div class="row slide-margin">
+                    <div class="row slide-margin bg-grey-transparent">
                         <div class="col-sm-6">
                             <div class="carousel-content">
                                 <h1 class="animation animated-item-1">Lorem ipsum dolor sit amet consectetur adipisicing elit</h1>
@@ -47,7 +47,7 @@
                                 <a class="btn-slide animation animated-item-3" href="#">Read More</a>
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
             </div><!--/.item-->
@@ -100,7 +100,7 @@
                     </div>
                 </div><!--/.col-md-4-->
 
-                <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms" ng-click="openLink('stuff')">
                     <div class="feature-wrap">
                         <i class="fa fa-users"></i>
                         <h2>Персонал</h2>
@@ -120,85 +120,27 @@
     </div><!--/.container-->
 </section><!--/#popular-->
 
-<section id="services" class="service-item">
+<section id="services" class="service-item" ng-controller="AdvertisementController">
     <div class="container">
         <div class="center wow fadeInDown">
             <h2>Оголошення</h2>
             <p class="lead"></p>
         </div>
-
         <div class="row">
-            <div class="col-sm-6 col-md-4">
+            <div class="col-sm-6 col-md-4 advert" ng-repeat="advert in advertisements">
                 <div class="media services-wrap wow fadeInDown">
-                    <div class="pull-left">
-                        <img class="img-responsive" src="../images/temp.jpg">
-                    </div>
                     <div class="media-body">
-                        <h3 class="media-heading">SEO Marketing</h3>
-                        <p>Lorem ipsum dolor sit ame consectetur adipisicing elit</p>
+                        <h3 class="center no-padding">{{advert.heading}}</h3>
+                        <div class="pull-left">
+                            <img class="img-responsive img_advert" src="../images/temp.jpg">
+                        </div>
+                        <p>{{advert.text}}</p>
                     </div>
+                    <button ng-click="showFullAdvert($event)">Детальніше</button>
                 </div>
             </div>
 
-            <div class="col-sm-6 col-md-4">
-                <div class="media services-wrap wow fadeInDown">
-                    <div class="pull-left">
-                        <img class="img-responsive" src="../images/temp.jpg">
-                    </div>
-                    <div class="media-body">
-                        <h3 class="media-heading">SEO Marketing</h3>
-                        <p>Lorem ipsum dolor sit ame consectetur adipisicing elit</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-6 col-md-4">
-                <div class="media services-wrap wow fadeInDown">
-                    <div class="pull-left">
-                        <img class="img-responsive" src="../images/temp.jpg">
-                    </div>
-                    <div class="media-body">
-                        <h3 class="media-heading">SEO Marketing</h3>
-                        <p>Lorem ipsum dolor sit ame consectetur adipisicing elit</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-6 col-md-4">
-                <div class="media services-wrap wow fadeInDown">
-                    <div class="pull-left">
-                        <img class="img-responsive" src="../images/temp.jpg">
-                    </div>
-                    <div class="media-body">
-                        <h3 class="media-heading">SEO Marketing</h3>
-                        <p>Lorem ipsum dolor sit ame consectetur adipisicing elit</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-6 col-md-4">
-                <div class="media services-wrap wow fadeInDown">
-                    <div class="pull-left">
-                        <img class="img-responsive" src="../images/temp.jpg">
-                    </div>
-                    <div class="media-body">
-                        <h3 class="media-heading">SEO Marketing</h3>
-                        <p>Lorem ipsum dolor sit ame consectetur adipisicing elit</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-6 col-md-4">
-                <div class="media services-wrap wow fadeInDown">
-                    <div class="pull-left">
-                        <img class="img-responsive" src="../images/temp.jpg">
-                    </div>
-                    <div class="media-body">
-                        <h3 class="media-heading">SEO Marketing</h3>
-                        <p>Lorem ipsum dolor sit ame consectetur adipisicing elit</p>
-                    </div>
-                </div>
-            </div>
+            
         </div><!--/.row-->
     </div><!--/.container-->
 </section><!--/#services-->

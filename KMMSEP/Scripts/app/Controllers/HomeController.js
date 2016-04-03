@@ -7,12 +7,17 @@
     }
 
     $scope.openLink = function (target) {
+        var index;
         switch (target) {
             case 'schedule':
                 $location.path('/Schedule');
                 break;
+            case 'stuff':
+                $location.path('/Stuff');
+                index = 2;
+                break;
         }
-        $scope.$parent.changeActiveness();
+        $scope.$parent.changeActiveness(index);
     }
 
     init();
