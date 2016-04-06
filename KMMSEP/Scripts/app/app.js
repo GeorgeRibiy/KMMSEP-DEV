@@ -1,4 +1,4 @@
-﻿var app = angular.module('HighModule', ['ngRoute']);
+﻿var app = angular.module('HighModule', ['ngRoute', 'angularSmoothscroll', 'ngMaterial']);
 app.config(["$routeProvider", function ($routeProvider) {
     $routeProvider
         .when('/', {
@@ -40,6 +40,13 @@ app.config(["$routeProvider", function ($routeProvider) {
         })
         .when('/Contacts', {
             templateUrl: 'Views/Contacts.html',
+            date: {
+                privateData: true
+            }
+        })
+        .when('/Schedule', {
+            templateUrl: 'Views/Schedule.html',
+            controller: 'ScheduleController',
             date: {
                 privateData: true
             }
