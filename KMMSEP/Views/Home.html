@@ -134,9 +134,9 @@
                         <div class="pull-left">
                             <img class="img-responsive img_advert" src="../images/temp.jpg">
                         </div>
-                        <p>{{advert.text}}</p>
+                        <p>{{advert.text | limitTo: 90}}</p>
                     </div>
-                    <button ng-click="showFullAdvert($event)">Детальніше</button>
+                    <button ng-click="showFullAdvert($event, $index)">Детальніше</button>
                 </div>
             </div>
 

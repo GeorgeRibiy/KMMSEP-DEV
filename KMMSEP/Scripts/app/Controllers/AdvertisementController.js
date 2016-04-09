@@ -7,7 +7,7 @@
     }
 
     var trimAdvertText = function (text) {
-        if (text.split(' ').length > 20) {
+        if (text.split(' ').length > 2000) {
             var words = text.split(' ').slice(0, 10).join(' ');
             text = words;
         }
@@ -15,16 +15,19 @@
         return text;
     }
 
-    $scope.showFullAdvert = function (ev) {
+    $scope.showFullAdvert = function (ev, index) {
         var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
-
         $mdDialog.show({
-            controller: DialogController,
+            controller: 'AdvertModalController',
             templateUrl: 'Views/Modals/AdvertModal.html',
             parent: angular.element(document.body),
             targetEvent: ev,
             clickOutsideToClose: true,
-            fullscreen: useFullScreen
+            fullscreen: useFullScreen,
+            bindToController: true,
+            locals: {
+                advert: $scope.advertisements[index]
+            }
         })
         .then(function (answer) {
             $scope.status = 'You said the information was "' + answer + '".';
@@ -33,18 +36,6 @@
         });
     }
 
-    function DialogController($scope, $mdDialog) {
-        $scope.hide = function () {
-            $mdDialog.hide();
-        };
-
-        $scope.cancel = function () {
-            $mdDialog.cancel();
-        };
-
-        $scope.answer = function (answer) {
-            $mdDialog.hide(answer);
-        };
-    }
+    $scope.advertExploreIndex = -1;
     init();
 }])

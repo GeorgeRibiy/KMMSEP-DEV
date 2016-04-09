@@ -58,6 +58,7 @@ a {
   -moz-transition: color 300ms, background-color 300ms;
   -o-transition:  color 300ms, background-color 300ms;
   transition:  color 300ms, background-color 300ms;
+  outline:none;
 }
 
 a:hover, a:focus {
@@ -290,6 +291,7 @@ input.search-form:hover {
 .navbar-nav>li{
   margin-left: 35px;
   padding-bottom: 28px;
+  outline:none;
 }
 
 .navbar-inverse .navbar-nav > li > a {
@@ -1599,6 +1601,7 @@ ul.social_icons li  a i{
     padding-bottom: 15px;
 }
 
+
 /***************************
 *****Modal CSS******
 ***************************/
@@ -1607,9 +1610,19 @@ ul.social_icons li  a i{
     position:absolute;
     right:0;
     top:0;
-    margin-right: 8px;
+    margin-right: 7px;
     margin-top: 5px;
-    font-size: 15px;
+    font-size: 20px;
+}
+
+.modal-text {
+    padding: 0 25px 0 0 !important;
+    overflow-y: scroll;
+}
+
+.img_advert_modal {
+    padding-bottom: 15px;
+    padding-right: 20px;
 }
 
 /***************************
@@ -2692,7 +2705,19 @@ shortcodes page css
 /* Scroller */
 
 .no-padding {
-    padding: 0;
+    padding: 0 !important;
+}
+
+.no-padding-top {
+    padding-top: 0 !important;
+}
+
+.no-padding-right {
+    padding-right: 0!important;
+}
+
+.no-padding-left {
+    padding-left: 0!important;
 }
 
 .full-width {

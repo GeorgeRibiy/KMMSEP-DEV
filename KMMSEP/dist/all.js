@@ -59551,7 +59551,7 @@ app.config(["$routeProvider", function ($routeProvider) {
     }
 
     var trimAdvertText = function (text) {
-        if (text.split(' ').length > 20) {
+        if (text.split(' ').length > 2000) {
             var words = text.split(' ').slice(0, 10).join(' ');
             text = words;
         }
@@ -59559,16 +59559,19 @@ app.config(["$routeProvider", function ($routeProvider) {
         return text;
     }
 
-    $scope.showFullAdvert = function (ev) {
+    $scope.showFullAdvert = function (ev, index) {
         var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && $scope.customFullscreen;
-
         $mdDialog.show({
-            controller: DialogController,
+            controller: 'AdvertModalController',
             templateUrl: 'Views/Modals/AdvertModal.html',
             parent: angular.element(document.body),
             targetEvent: ev,
             clickOutsideToClose: true,
-            fullscreen: useFullScreen
+            fullscreen: useFullScreen,
+            bindToController: true,
+            locals: {
+                advert: $scope.advertisements[index]
+            }
         })
         .then(function (answer) {
             $scope.status = 'You said the information was "' + answer + '".';
@@ -59577,20 +59580,24 @@ app.config(["$routeProvider", function ($routeProvider) {
         });
     }
 
-    function DialogController($scope, $mdDialog) {
-        $scope.hide = function () {
-            $mdDialog.hide();
-        };
-
-        $scope.cancel = function () {
-            $mdDialog.cancel();
-        };
-
-        $scope.answer = function (answer) {
-            $mdDialog.hide(answer);
-        };
-    }
+    $scope.advertExploreIndex = -1;
     init();
+}])
+;app.controller('AdvertModalController', ['$scope', '$mdDialog', '$mdMedia','AdvertisementService', function ($scope, $mdDialog, $mdMedia) {
+    $scope.hide = function () {
+        $mdDialog.hide();
+    };
+
+    $scope.cancel = function () {
+        $mdDialog.cancel();
+    };
+
+    $scope.answer = function (answer) {
+        $mdDialog.hide(answer);
+    };
+
+    $scope.advert = this.advert;
+    console.log($scope.advert);
 }])
 ;app.controller('HomeController', ['$scope','$location', function ($scope, $location) {
     var init = function () {
@@ -59783,24 +59790,38 @@ app.config(["$routeProvider", function ($routeProvider) {
     init();
 }])
 ;app.service('AdvertisementService', [function () {
-    this.getAdvertises = function () {
-        return [
+    var adverts = [
             {
                 heading: 'Advertise 1',
-                text: 'Arrived compass prepare an on as. Reasonable particular on my it in sympathize. Size now easy eat hand how. Unwilling he departure elsewhere dejection at. Heart large seems may purse means few blind. Exquisite newspaper attending on certainty oh suspicion of. He less do quit evil is. Add matter family active mutual put wishes happen. '
+                text: 'Arrived compass prepare an on as. Reasonable particular on my it in sympathize. Size now easy eat hand how. Unwilling he departure elsewhere dejection at. Heart large seems may purse means few blind. Exquisite newspaper attending on certainty oh suspicion of. He less do quit evil is. Add matter family active mutual put wishes happen. ',
+                created: '27.03.1996',
+                importance: 'important'
             },
             {
                 heading: 'Advertise 2',
-                text: 'One advanced diverted domestic sex repeated bringing you old. Possible procured her trifling laughter thoughts property she met way. Companions shy had solicitude favourable own. Which could saw guest man now heard but. Lasted my coming uneasy marked so should. Gravity letters it amongst herself dearest an windows by. Wooded ladies she basket season age her uneasy saw. '
+                text: 'One advanced diverted domestic sex repeated bringing you old. Possible procured her trifling laughter thoughts property she met way. Companions shy had solicitude favourable own. Which could saw guest man now heard but. Lasted my coming uneasy marked so should. Gravity letters it amongst herself dearest an windows by. Wooded ladies she basket season age her uneasy saw. ',
+                created: '27.03.1996',
+                importance: 'important'
             },
             {
                 heading: 'Advertise 3',
-                text: 'Building mr concerns servants in he outlived am breeding. He so lain good miss when sell some at if. Told hand so an rich gave next. How doubt yet again see son smart. While mirth large of on front. Ye he greater related adapted proceed entered an. Through it examine express promise no. Past add size game cold girl off how old. '
+                text: 'Building mr concerns servants in he outlived am breeding. He so lain good miss when sell some at if. Told hand so an rich gave next. How doubt yet again see son smart. While mirth large of on front. Ye he greater related adapted proceed entered an. Through it examine express promise no. Past add size game cold girl off how old. ',
+                created: '27.03.1996',
+                importance: 'important'
             },
             {
                 heading: 'Advertise 4',
-                text: 'It real sent your at. Amounted all shy set why followed declared. Repeated of endeavor mr position kindness offering ignorant so up. Simplicity are melancholy preference considered saw companions. Disposal on outweigh do speedily in on. Him ham although thoughts entirely drawings. Acceptance unreserved old admiration projection nay yet him. Lasted am so before on esteem vanity oh. '
+                text: 'It real sent your at. Amounted all shy set why followed declared. Repeated of endeavor mr position kindness offering ignorant so up. Simplicity are melancholy preference considered saw companions. Disposal on outweigh do speedily in on. Him ham although thoughts entirely drawings. Acceptance unreserved old admiration projection nay yet him. Lasted am so before on esteem vanity oh. ',
+                created: '27.03.1996',
+                importance: 'important'
             }
-        ];
+    ];
+
+    this.getAdvertises = function () {
+        return adverts;
+    };
+
+    this.getAdvertByIndex = function (index) {
+        return adverts[index];
     }
 }])
