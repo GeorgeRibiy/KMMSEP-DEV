@@ -1,4 +1,4 @@
-﻿app.service('AdvertisementService', [function () {
+﻿app.service('AdvertisementService', ['RequestService', function (RequestService) {
     var adverts = [
             {
                 heading: 'Advertise 1',

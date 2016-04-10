@@ -20,6 +20,9 @@ body {
   color:#4e4e4e;
   line-height: 22px;
 }
+* {
+    outline: none;
+}
 
 h1,
 h2,
@@ -372,6 +375,134 @@ input.search-form:hover {
   padding-bottom: 0;
 }
 
+/*************************
+*******Authorization******
+**************************/
+.nav-authorization {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: 29px;
+    line-height:30px;
+}
+
+.nav-authorization .sign {
+    position: relative;
+    right: 0;
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+    background: #404040;
+    color: #fff;
+    border-radius: 3px;
+    text-align: center;
+    padding-right:3px;
+}
+.nav-authorization .sign :hover {
+    color: #c52d2f;
+    -webkit-transition: color 300ms;
+    -moz-transition: color 300ms;
+    -o-transition: color 300ms;
+    transition: color 300ms;
+}
+
+.nav-authorization p{
+    margin-right: 20px;
+    color: #fff;
+    line-height: 31px;
+}
+
+.nav-authorization-collapse {
+    position: relative;
+    margin: 0 auto;
+    bottom:0;
+    left: 0;
+    display: none;
+    color: #fff;
+    line-height: 33px;
+}
+
+.nav-authorization-collapse .sign {
+    position: relative;
+    right: 0;
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+    background: #404040;
+    color: #fff;
+    border-radius: 3px;
+    text-align: center;
+    padding-right:3px;
+}
+
+
+@media (max-width: 767px) {
+    .nav-authorization {
+        display: none;
+    }
+    .nav-authorization-collapse {
+        display: block;
+    }
+}
+
+@media (min-width: 768px) {
+    .nav-authorization-collapse p {
+        display: none;
+    }
+}
+
+/************************
+*****SignIn Modal********
+************************/
+.form-sign-in-base {
+    padding: 30px;
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.form-signin p {
+    margin-top: 10px;
+    color: #c52d2f;
+    text-align: center;
+}
+
+.form-signin-heading {
+    text-align: center;
+}
+
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
 
 /*************************
 *******Home Page******
@@ -1078,6 +1209,10 @@ a.accordion-toggle  i{
   position: relative;
 }
 
+#carousel-inner-about {
+    height: 60vh;
+}
+
 #carousel-slider .carousel-indicators {
   bottom: -25px;
 }
@@ -1110,11 +1245,11 @@ a.accordion-toggle  i{
 }
 
 #carousel-slider .carousel-control.left i {
-  left:-25px
+  left: -100px;
 }
 
 #carousel-slider .carousel-control.right i {
-  right: -25px;
+  right: -100px;
 }
 
 #carousel-slider
@@ -2720,6 +2855,10 @@ shortcodes page css
     padding-left: 0!important;
 }
 
+.no-margin-top {
+    margin-top: 0 !important;
+}
+
 .full-width {
     width:100%;
 }
@@ -2728,9 +2867,19 @@ shortcodes page css
     margin-bottom:0;
 }
 
+.block-center {
+    margin: 0 auto;
+}
+
+.margin-top-40 {
+    margin-top: 40px;
+}
+
 @media screen and (max-width: 980px) {
     #feature {
         height: auto;
     }
 }
+
+
 
