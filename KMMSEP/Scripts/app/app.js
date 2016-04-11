@@ -1,57 +1,92 @@
-﻿var app = angular.module('HighModule', ['ngRoute', 'angularSmoothscroll', 'ngMaterial']);
-app.config(["$routeProvider", function ($routeProvider) {
-    $routeProvider
-        .when('/', {
-            redirectTo: '/Home',
-            data: {
-                privateData: true
-            }
-        })
-        .when('/Home', {
+﻿var app = angular.module('HighModule', ['ui.router', 'angularSmoothscroll', 'ngMaterial', 'anim-in-out']);
+app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
+    $stateProvider
+        .state('Home', {
+            url: '/Home',
             templateUrl: 'Views/Home.html',
-            controller: 'HomeController',
-            data: {
-                privateData: true
-            }
+            controller: 'HomeController'
         })
-        .when('/About', {
-            templateUrl: 'Views/About.html',
-            date: {
-                privateData: true
-            }
+        .state('About', {
+            url: '/About',
+            templateUrl: 'Views/About.html'
         })
-        .when('/Stuff', {
+        .state('Stuff', {
+            url: '/Stuff',
             templateUrl: 'Views/Stuff.html',
-            date: {
-                privateData: true
-            }
+            controller: 'StuffController'
         })
-        .when('/Photos', {
-            templateUrl: 'Views/Photos.html',
-            date: {
-                privateData: true
-            }
+        .state('/Photos', {
+            url: '/Photos',
+            templateUrl: 'Views/Photos.html'
         })
-        .when('/Articles', {
-            templateUrl: 'Views/Articles.html',
-            date: {
-                privateData: true
-            }
+        .state('/Articles', {
+            url: '/Articles',
+            templateUrl: 'Views/Articles.html'
         })
-        .when('/Contacts', {
-            templateUrl: 'Views/Contacts.html',
-            date: {
-                privateData: true
-            }
+        .state('/Contacts', {
+            url: '/Contacts',
+            templateUrl: 'Views/Contacts.html'
         })
-        .when('/Schedule', {
+        .state('/Schedule', {
+            url: '/Schedule',
             templateUrl: 'Views/Schedule.html',
-            controller: 'ScheduleController',
-            date: {
-                privateData: true
-            }
+            controller: 'ScheduleController'
         })
-        .otherwise({
-            redirectTo: '/Home'
-        })
+    $urlRouterProvider.otherwise("/Home");
 }])
+//app.config(["$routeProvider", function ($routeProvider) {
+//    $routeProvider
+//        .when('/', {
+//            redirectTo: '/Home',
+//            data: {
+//                privateData: true
+//            }
+//        })
+//        .when('/Home', {
+//            templateUrl: 'Views/Home.html',
+//            controller: 'HomeController',
+//            data: {
+//                privateData: true
+//            }
+//        })
+//        .when('/About', {
+//            templateUrl: 'Views/About.html',
+//            date: {
+//                privateData: true
+//            }
+//        })
+//        .when('/Stuff', {
+//            templateUrl: 'Views/Stuff.html',
+//            date: {
+//                privateData: true
+//            }
+//        })
+//        .when('/Photos', {
+//            templateUrl: 'Views/Photos.html',
+//            date: {
+//                privateData: true
+//            }
+//        })
+//        .when('/Articles', {
+//            templateUrl: 'Views/Articles.html',
+//            date: {
+//                privateData: true
+//            }
+//        })
+//        .when('/Contacts', {
+//            templateUrl: 'Views/Contacts.html',
+//            date: {
+//                privateData: true
+//            }
+//        })
+//        .when('/Schedule', {
+//            templateUrl: 'Views/Schedule.html',
+//            controller: 'ScheduleController',
+//            date: {
+//                privateData: true
+//            }
+//        })
+//        .otherwise({
+//            redirectTo: '/Home'
+//        })
+//}])

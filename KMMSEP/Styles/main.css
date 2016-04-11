@@ -371,7 +371,36 @@ input.search-form:hover {
   border-top: 0;
   padding-bottom: 0;
 }
+/**************************
+**********Index************
+**************************/
 
+.load-placeholder {
+    min-height: 89vh;
+}
+
+.main-view {
+    position: relative;
+    top: 0;
+    opacity: 1;
+}
+.main-view.ng-enter,
+.main-view.ng-leave {
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
+}
+.main-view.ng-enter {
+    opacity: 0;
+}
+.main-view.ng-enter-active {
+    opacity: 1;
+}
+.main-view.ng-leave {
+    opacity: 1;
+}
+.main-view.ng-leave-active {
+    opacity: 0;
+}
 
 /*************************
 *******Home Page******
@@ -1536,14 +1565,14 @@ ul.social_icons li  a i{
   padding: 60px;
 }
 
-.clients-comments {
+.workers {
     background-image: url("../images/image_bg.png");
     background-position: center 118px;
     background-repeat: no-repeat;
     margin-bottom: 100px;
 }
 
-.clients-comments img {
+.workers img {
   background:#DDDDDD;
   border: 1px solid #DDDDDD;
   height: 182px;
@@ -1555,21 +1584,48 @@ ul.social_icons li  a i{
   -o-transition: all 0.9s ease 0s;
 }
 
-.clients-comments h3 {
+.workers h3 {
   margin-top: 55px;
   font-weight: 300;
   padding: 0 40px;
 }
 
-.clients-comments h4 {
+.workers h4 {
+  font-size: 25px;
   font-weight: 300;
   margin-top: 15px;
+  padding-top: 30px;
 }
 
+.workers p {
+    font-size: 16px;
+    font-weight: 300;
+    font-family: 'Open Sans', sans-serif;
+    margin-bottom: 5px;
+}
 
-.clients-comments  h4  span {
+.workers h5 {
+    margin: 0 0 3px;
+}
+
+.workers  h4  span {
   font-weight: 700;
   font-style: oblique;
+}
+
+.workers .details {
+    list-style-type: none;
+}
+
+.workers .details li i{
+    margin-right: 10px;
+}
+
+.workers .details li .detail-cell {
+    position: relative;
+    right: 15px;
+    display: inline-block;
+    margin: 0 auto;
 }
 
 .footer {
