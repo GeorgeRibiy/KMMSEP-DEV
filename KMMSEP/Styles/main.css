@@ -2233,6 +2233,10 @@ ul.social_icons li  a i{
   /* font-size: 16px; */
 }
 
+.gmap-area .center-block{
+    margin: 0 15.75%;
+}
+
 #contact-page{
   padding-top: 0;
 }
