@@ -88,13 +88,18 @@
     <Content Include="Scripts\angular\bb15da28.scripts.js" />
     <Content Include="Scripts\app\app.js" />
     <Content Include="Scripts\app\Controllers\AdvertisementController.js" />
+    <Content Include="Scripts\app\Controllers\AdvertModalController.js" />
+    <Content Include="Scripts\app\Controllers\AuthorizationController.js" />
     <Content Include="Scripts\app\Controllers\HomeController.js" />
     <Content Include="Scripts\app\Controllers\IndexController.js" />
     <Content Include="Scripts\app\Controllers\LoadingIndicatorController.js" />
     <Content Include="Scripts\app\Controllers\ScheduleController.js" />
+    <Content Include="Scripts\app\Services\AdvertisementService.js" />
+    <Content Include="Scripts\app\Services\AuthorizationService.js" />
+    <Content Include="Scripts\app\Services\CommonFunctionsService.js" />
+    <Content Include="Scripts\app\Services\RequestSerivce.js" />
     <Content Include="Scripts\app\Controllers\StuffController.js" />
     <Content Include="Scripts\app\Directives\LoadingDirective.js" />
-    <Content Include="Scripts\app\Services\AdvertisementService.js" />
     <Content Include="Scripts\app\Services\StuffService.js" />
     <Content Include="Scripts\bootstrap\bootstrap.js" />
     <Content Include="Scripts\html5shiv.js" />
@@ -118,11 +123,16 @@
     <Content Include="Views\Home.html" />
     <Content Include="Views\Index.html" />
     <Content Include="Views\Modals\AdvertModal.html" />
+    <Content Include="Views\Modals\SignInModal.html">
+      <BrowseToURL>~/Modals/SignInModal</BrowseToURL>
+    </Content>
     <Content Include="Views\Partials\LoadingIndicatorView.html" />
     <Content Include="Views\Photos.html" />
     <Content Include="Views\Schedule.html" />
     <Content Include="Views\Stuff.html" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />

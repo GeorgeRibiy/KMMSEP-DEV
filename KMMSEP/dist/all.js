@@ -63246,11 +63246,6 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
                 advert: $scope.advertisements[index]
             }
         })
-        .then(function (answer) {
-            $scope.status = 'You said the information was "' + answer + '".';
-        }, function () {
-            $scope.status = 'You cancelled the dialog.';
-        });
     }
 
     $scope.advertExploreIndex = -1;
@@ -63271,6 +63266,35 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
 
     $scope.advert = this.advert;
     console.log($scope.advert);
+}])
+;app.controller('AuthorizationController', ['$scope', '$mdDialog', '$mdMedia', '$timeout', 'AuthorizationService', 'CommonFunctionService',
+    function ($scope, $mdDialog, $mdMedia, $timeout, AuthorizationService, CommonFunctionService) {
+    var init = function () {
+        $scope.processing = false;
+    }
+
+    $scope.signIn = function () {
+        $scope.processing = true;
+        var user = {
+            email: $scope.user_email.toLowerCase(),
+            password: $scope.user_password.toLowerCase()
+        };
+        console.log(user);
+        var result = AuthorizationService.tryToAuthorize(user);
+        if (result.found) {
+            $scope.signInResult = "Вітаємо, " + result.user.name;
+            CommonFunctionService.setCookie('kmmsep_user', result.user, new Date(0, 1));
+            $timeout(function () {
+                $mdDialog.hide();
+                console.log("confirmed");
+            }, 1500);
+        } else {
+            $scope.signInResult = "Не вірний email або пароль";
+        }
+        $scope.processing = false;
+    };
+
+    init();
 }])
 ;app.controller('HomeController', ['$scope','$location', function ($scope, $location) {
     var init = function () {
@@ -63296,10 +63320,18 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
 
     init();
 }])
-;app.controller('IndexController', ['$scope', '$location', function ($scope, $location) {
+;app.controller('IndexController', ['$scope', '$location', '$mdDialog', '$mdMedia', 'CommonFunctionService', function ($scope, $location, $mdDialog, $mdMedia, CommonFunctionService) {
     var init = function () {
         $scope.activeness = ["", "", "", "", "", ""];
         checkLocation();
+        if (CommonFunctionService.getCookie('kmmsep_user')) {
+            $scope.userName = CommonFunctionService.getCookie('kmmsep_user').name;
+        } else {
+            $scope.userName = undefined;
+        }
+        
+        $scope.greetingMessage = $scope.userName ? createGreeting($scope.userName) : 'Увійти';
+        $scope.signedIn = checkIfSignedIn();
     };
 
     var checkLocation = function () {
@@ -63336,6 +63368,22 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
         }
     }
 
+    var getUserName = function () {
+        return CommonFunctionService.getCookie('kmmsep_user').name;
+    }
+
+    var createGreeting = function (userName) {
+        return 'Вітаю, ' + userName;
+    }
+
+    var checkIfSignedIn = function () {
+        if (CommonFunctionService.getCookie('kmmsep_user') === undefined)
+            return false;
+        return true;
+    }
+
+    $scope.userName;
+
     $scope.changeActiveness = changeActiveness;
 
     $scope.ChangeLocation = function (index) {
@@ -63362,6 +63410,37 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
 
         changeActiveness(index);
     }
+
+    $scope.openSignInModal = function (ev) {
+        $mdDialog.show({
+            controller: 'AuthorizationController',
+            templateUrl: 'Views/Modals/SignInModal.html',
+            parent: angular.element(document.body),
+            targetEvent: ev,
+            clickOutsideToClose: true,
+            fullscreen: false,
+        })
+        .then(function () {
+            $scope.userName = CommonFunctionService.getCookie('kmmsep_user').name;
+        })
+    };
+
+    $scope.signOut = function () {
+        CommonFunctionService.deleteCookie('kmmsep_user');
+        $scope.signedIn = false;
+        $scope.userName = undefined;
+    }
+
+    $scope.$watch('userName', function (newValue, oldValue) {
+        console.log(newValue + " " + oldValue);
+        if (newValue != oldValue) {
+            if (newValue != undefined) {
+                $scope.greetingMessage = createGreeting(newValue);
+            } else {
+                $scope.greetingMessage = 'Увійти';
+            }
+        }
+    })
 
     init();
 }])
@@ -63482,7 +63561,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
 
     init();
 }])
-;app.service('AdvertisementService', [function () {
+;app.service('AdvertisementService', ['RequestService', function (RequestService) {
     var adverts = [
             {
                 heading: 'Advertise 1',
@@ -63517,6 +63596,133 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
     this.getAdvertByIndex = function (index) {
         return adverts[index];
     }
+}])
+;app.service('AuthorizationService', ['RequestService', function (RequestService) {
+    String.prototype.hashCode = function() {
+        var hash = 0, i, chr, len;
+        if (this.length === 0) return hash;
+        for (i = 0, len = this.length; i < len; i++) {
+            chr   = this.charCodeAt(i);
+            hash  = ((hash << 5) - hash) + chr;
+            hash |= 0; // Convert to 32bit integer
+        }
+        return hash;
+    };
+
+    var checkIdentity = function (input) {
+        for (var i = 0; i < users.length ; i++) {
+            console.log(users[i]);
+            if (users[i].email == input.email.toLowerCase() && users[i].password == input.password.hashCode())
+            {
+                return {
+                    found: true,
+                    user: users[i]
+                };
+            }
+        }
+        return {
+            found: false,
+            user: null
+        };
+    }
+    
+    var users = [
+        {
+            name: 'George',
+            email: 'ribiy49@gmail.com',
+            password: 'dsnfksrrfpzdrf33'.hashCode()
+        },
+        {
+            name: 'admin',
+            email: 'admin@example.com',
+            password: 'admin'.hashCode()
+        }
+    ]
+    this.tryToAuthorize = function (potentialUser) {
+        return checkIdentity(potentialUser);
+    }
+}])
+;app.service('CommonFunctionService', [function () {
+    this.getCookie = function (key) {
+        var matches = document.cookie.match(new RegExp(
+            "(?:^|; )" + key.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+        ));
+        
+        var result;
+        if (matches) {
+            result = decodeURIComponent(matches[1]);
+            result = result[0] === '{' ? JSON.parse(result) : result;
+        }
+        return result;
+    }
+
+    this.setCookie = function (key, value, options) {
+        options = options || {};
+
+        var expires = options.expires;
+
+        if (typeof expires == "number" && expires) {
+            var d = new Date();
+            d.setTime(d.getTime() + expires * 1000);
+            expires = options.expires = d;
+        }
+        if (expires && expires.toUTCString) {
+            options.expires = expires.toUTCString();
+        }
+
+        if (typeof value == "object")
+            value = JSON.stringify(value);
+        value = encodeURIComponent(value);
+
+        var updatedCookie = key + "=" + value;
+
+        for (var propName in options) {
+            updatedCookie += "; " + propName;
+            var propValue = options[propName];
+            if (propValue !== true) {
+                updatedCookie += "=" + propValue;
+            }
+        }
+
+        document.cookie = updatedCookie;
+    }
+
+    this.deleteCookie = function (key) {
+        this.setCookie(key, "", {
+            expires: -1
+        })
+    }
+}])
+;app.service('RequestService', ['$http', function ($http) {
+    this.get = function (url, deffered) {
+        $http.get(url)
+            .success(function (responce) {
+                deffered.resolve(responce);
+            })
+            .error(function (error) {
+                deffered.reject(error);
+            })
+    };
+
+    this.post = function (url, data, deffered) {
+        $http.post(url, data)
+            .success(function (responce) {
+                deffered.resolve(responce);
+            })
+            .error(function (error) {
+                deffered.reject(error);
+            })
+    };
+
+    this.delete = function (url, deffered) {
+        $http.delete(url)
+            .success(function (responce) {
+                deffered.resolve(responce);
+            })
+            .error(function (error) {
+                deffered.reject(error);
+            })
+    };
 }])
 ;app.service('StuffService', [function () {
     this.getAll = function () {
