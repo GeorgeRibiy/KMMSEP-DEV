@@ -33,7 +33,7 @@
                     <ul class="nav navbar-nav nav-centered">
                         <li class="cursor-pointer ng-class: activeness[0]" ng-click="ChangeLocation(0)"><a>Головна сторінка</a></li>
                         <li class="cursor-pointer ng-class: activeness[1]" ng-click="ChangeLocation(1)"><a>Про кафедру</a></li>
-                        <li class="cursor-pointer ng-class: activeness[2]" ng-click="ChangeLocation(2)"><a>Персонал</a></li>
+                        <li class="cursor-pointer ng-class: activeness[2]" ng-click="ChangeLocation(2)"><a>Працівники</a></li>
                         <li class="cursor-pointer ng-class: activeness[3]" ng-click="ChangeLocation(3)"><a>Фотографії</a></li>
                         <li class="cursor-pointer ng-class: activeness[4]" ng-click="ChangeLocation(4)"><a>Статті</a></li>
                         <li class="cursor-pointer ng-class: activeness[5]" ng-click="ChangeLocation(5)"><a>Контакти</a></li>
@@ -53,8 +53,10 @@
         </nav><!--/nav-->
     </header><!--/header-->
 
-    <div id="viewer" ng-view autoscroll="true"></div>
-
+    <div class="load-placeholder">
+        <loading-indicator></loading-indicator>
+        <div id="viewer" ui-view class="anim-in-out anim-fade" data-anim-speed="700" data-anim-sync="true"></div>
+    </div>
 
     <footer id="footer" class="midnight-blue">
         <div class="container">
