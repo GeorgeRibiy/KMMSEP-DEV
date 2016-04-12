@@ -63522,7 +63522,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
     this.getAll = function () {
         return [
             {
-                avatar:'../images/avatar.png',
+                avatar:'../images/avatar_man.png',
                 fullName: 'Цегелик Г.Г.',
                 position: 'Голова кафедри, професор',
                 subjects: 'Основи інформаційних технологій',
@@ -63567,7 +63567,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
                 facebook: 'linkToFacebook',
             },
             {
-                avatar: '../images/avatar.png',
+                avatar: '../images/avatar_man.png',
                 fullName: 'Коркуна А.М.',
                 position: 'Голова кафедри, професор',
                 subjects: 'Основи інформаційних технологій',

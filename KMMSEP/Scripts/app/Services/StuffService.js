@@ -2,7 +2,7 @@
     this.getAll = function () {
         return [
             {
-                avatar:'../images/avatar.png',
+                avatar:'../images/avatar_man.png',
                 fullName: 'Цегелик Г.Г.',
                 position: 'Голова кафедри, професор',
                 subjects: 'Основи інформаційних технологій',
@@ -47,7 +47,7 @@
                 facebook: 'linkToFacebook',
             },
             {
-                avatar: '../images/avatar.png',
+                avatar: '../images/avatar_man.png',
                 fullName: 'Коркуна А.М.',
                 position: 'Голова кафедри, професор',
                 subjects: 'Основи інформаційних технологій',

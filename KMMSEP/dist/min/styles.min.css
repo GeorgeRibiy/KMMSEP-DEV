@@ -31820,7 +31820,7 @@ ul.social_icons li  a i{
 
 .workers .details li .detail-cell {
     position: relative;
-    right: 15px;
+    right: 24px;
     display: inline-block;
     margin: 0 auto;
 }
@@ -32971,6 +32971,10 @@ shortcodes page css
 
 .no-padding-left {
     padding-left: 0!important;
+}
+
+no-fixed-height {
+    height: auto !important;
 }
 
 .full-width {
