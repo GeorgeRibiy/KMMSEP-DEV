@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -11,9 +13,10 @@ using MongoDB.Driver.Linq;
 
 namespace KMMSEP.Infrastructure.Repository
 {
-    class ScheduleRepository : IScheduleRepository
+    public class ScheduleRepository : IScheduleRepository
     {
-        public ScheduleContext Context { get; }
+        public ScheduleContext Context { get; set; }
+
         public IMongoCollection<Schedule> GetAll()
         {
             return Context.Database.GetCollection<Schedule>("Schedule", new MongoCollectionSettings());
@@ -24,9 +27,14 @@ namespace KMMSEP.Infrastructure.Repository
             return Context.Shedules.AsQueryable().FirstOrDefault(s => s.Id.ToString() == id.ToString());
         }
 
-        public Task<Schedule> GetByIdAsync(string id)
+        public async Task<Schedule> GetByIdAsync(string id)
         {
-            return Context.Shedules.AsQueryable().FirstOrDefaultAsync(w => w.Id.ToString() == id);
+            return await Context.Shedules.AsQueryable().FirstOrDefaultAsync(w => w.Id.ToString() == id);
+        }
+
+        public async Task<Schedule> GetBySemesterAndCourseAsync(string semester, string course)
+        {
+            return await Context.Shedules.AsQueryable().FirstAsync(a => a.Course.ToString() == course && a.Semester.ToString() == semester);
         }
 
         public void Add(Schedule entity)

@@ -4,19 +4,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KMMSEP", "KMMSEP\KMMSEP.csproj", "{090486F3-A057-46C0-A976-A9BB4D51BC61}"
+	ProjectSection(ProjectDependencies) = postProject
+		{448588D0-CB78-4C15-A950-7A25B7B40AD9} = {448588D0-CB78-4C15-A950-7A25B7B40AD9}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KMMSEP.Tests", "KMMSEP.Tests\KMMSEP.Tests.csproj", "{7EA7C3DE-8072-4371-BD7F-231A91D7B8F6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KMMSEP.Infrastructure", "KMMSEP.Infrastructure\KMMSEP.Infrastructure.csproj", "{ACA9514A-19CB-4FE4-971B-783B0FE01D6A}"
-	ProjectSection(ProjectDependencies) = postProject
-		{7EA7C3DE-8072-4371-BD7F-231A91D7B8F6} = {7EA7C3DE-8072-4371-BD7F-231A91D7B8F6}
-		{090486F3-A057-46C0-A976-A9BB4D51BC61} = {090486F3-A057-46C0-A976-A9BB4D51BC61}
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KMMSEP.Domain.Models", "KMMSEP.Domain.Models\KMMSEP.Domain.Models.csproj", "{3825EA25-B406-43E0-B837-84DF47996C30}"
-	ProjectSection(ProjectDependencies) = postProject
-		{7EA7C3DE-8072-4371-BD7F-231A91D7B8F6} = {7EA7C3DE-8072-4371-BD7F-231A91D7B8F6}
-	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KMMSEP.Domain.Services", "KMMSEP.Domain.Services\KMMSEP.Domain.Services.csproj", "{448588D0-CB78-4C15-A950-7A25B7B40AD9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KMMSEP.API.Models", "KMMSEP.API.Models\KMMSEP.API.Models.csproj", "{BEBE03AA-C7D5-4A95-8E9F-648715ADE77F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -40,6 +40,14 @@ Global
 		{3825EA25-B406-43E0-B837-84DF47996C30}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3825EA25-B406-43E0-B837-84DF47996C30}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3825EA25-B406-43E0-B837-84DF47996C30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{448588D0-CB78-4C15-A950-7A25B7B40AD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{448588D0-CB78-4C15-A950-7A25B7B40AD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{448588D0-CB78-4C15-A950-7A25B7B40AD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{448588D0-CB78-4C15-A950-7A25B7B40AD9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEBE03AA-C7D5-4A95-8E9F-648715ADE77F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEBE03AA-C7D5-4A95-8E9F-648715ADE77F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEBE03AA-C7D5-4A95-8E9F-648715ADE77F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEBE03AA-C7D5-4A95-8E9F-648715ADE77F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
