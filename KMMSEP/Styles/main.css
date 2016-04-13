@@ -20,6 +20,9 @@ body {
   color:#4e4e4e;
   line-height: 22px;
 }
+* {
+    outline: none;
+}
 
 h1,
 h2,
@@ -58,6 +61,7 @@ a {
   -moz-transition: color 300ms, background-color 300ms;
   -o-transition:  color 300ms, background-color 300ms;
   transition:  color 300ms, background-color 300ms;
+  outline:none;
 }
 
 a:hover, a:focus {
@@ -290,6 +294,7 @@ input.search-form:hover {
 .navbar-nav>li{
   margin-left: 35px;
   padding-bottom: 28px;
+  outline:none;
 }
 
 .navbar-inverse .navbar-nav > li > a {
@@ -369,7 +374,164 @@ input.search-form:hover {
   border-top: 0;
   padding-bottom: 0;
 }
+/**************************
+**********Index************
+**************************/
 
+.load-placeholder {
+    min-height: 89vh;
+}
+
+/*************************
+*******Authorization******
+**************************/
+.nav-authorization {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: 29px;
+    line-height:30px;
+}
+
+.nav-authorization .sign {
+    position: relative;
+    right: 0;
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+    background: #404040;
+    color: #fff;
+    border-radius: 3px;
+    text-align: center;
+    padding-right:3px;
+}
+.nav-authorization .sign :hover {
+    color: #c52d2f;
+    -webkit-transition: color 300ms;
+    -moz-transition: color 300ms;
+    -o-transition: color 300ms;
+    transition: color 300ms;
+}
+
+.nav-authorization p{
+    margin-right: 20px;
+    color: #fff;
+    line-height: 31px;
+}
+
+.nav-authorization-collapse {
+    position: relative;
+    margin: 0 auto;
+    bottom:0;
+    left: 0;
+    display: none;
+    color: #fff;
+    line-height: 33px;
+}
+
+.nav-authorization-collapse .sign {
+    position: relative;
+    right: 0;
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+    background: #404040;
+    color: #fff;
+    border-radius: 3px;
+    text-align: center;
+    padding-right:3px;
+}
+
+
+@media (max-width: 767px) {
+    .nav-authorization {
+        display: none;
+    }
+    .nav-authorization-collapse {
+        display: block;
+    }
+}
+
+@media (min-width: 768px) {
+    .nav-authorization-collapse p {
+        display: none;
+    }
+}
+
+/************************
+*****SignIn Modal********
+************************/
+.form-sign-in-base {
+    padding: 30px;
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.form-signin p {
+    margin-top: 10px;
+    color: #c52d2f;
+    text-align: center;
+}
+
+.form-signin-heading {
+    text-align: center;
+}
+
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+.main-view {
+    position: relative;
+    top: 0;
+    opacity: 1;
+}
+.main-view.ng-enter,
+.main-view.ng-leave {
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
+}
+.main-view.ng-enter {
+    opacity: 0;
+}
+.main-view.ng-enter-active {
+    opacity: 1;
+}
+.main-view.ng-leave {
+    opacity: 1;
+}
+.main-view.ng-leave-active {
+    opacity: 0;
+}
 
 /*************************
 *******Home Page******
@@ -1076,6 +1238,10 @@ a.accordion-toggle  i{
   position: relative;
 }
 
+#carousel-inner-about {
+    height: 60vh;
+}
+
 #carousel-slider .carousel-indicators {
   bottom: -25px;
 }
@@ -1108,11 +1274,11 @@ a.accordion-toggle  i{
 }
 
 #carousel-slider .carousel-control.left i {
-  left:-25px
+  left: -100px;
 }
 
 #carousel-slider .carousel-control.right i {
-  right: -25px;
+  right: -100px;
 }
 
 #carousel-slider
@@ -1534,14 +1700,14 @@ ul.social_icons li  a i{
   padding: 60px;
 }
 
-.clients-comments {
+.workers {
     background-image: url("../images/image_bg.png");
     background-position: center 118px;
     background-repeat: no-repeat;
     margin-bottom: 100px;
 }
 
-.clients-comments img {
+.workers img {
   background:#DDDDDD;
   border: 1px solid #DDDDDD;
   height: 182px;
@@ -1553,21 +1719,48 @@ ul.social_icons li  a i{
   -o-transition: all 0.9s ease 0s;
 }
 
-.clients-comments h3 {
+.workers h3 {
   margin-top: 55px;
   font-weight: 300;
   padding: 0 40px;
 }
 
-.clients-comments h4 {
+.workers h4 {
+  font-size: 25px;
   font-weight: 300;
   margin-top: 15px;
+  padding-top: 30px;
 }
 
+.workers p {
+    font-size: 16px;
+    font-weight: 300;
+    font-family: 'Open Sans', sans-serif;
+    margin-bottom: 5px;
+}
 
-.clients-comments  h4  span {
+.workers h5 {
+    margin: 0 0 3px;
+}
+
+.workers  h4  span {
   font-weight: 700;
   font-style: oblique;
+}
+
+.workers .details {
+    list-style-type: none;
+}
+
+.workers .details li i{
+    margin-right: 10px;
+}
+
+.workers .details li .detail-cell {
+    position: relative;
+    right: 24px;
+    display: inline-block;
+    margin: 0 auto;
 }
 
 .footer {
@@ -1599,6 +1792,7 @@ ul.social_icons li  a i{
     padding-bottom: 15px;
 }
 
+
 /***************************
 *****Modal CSS******
 ***************************/
@@ -1607,9 +1801,19 @@ ul.social_icons li  a i{
     position:absolute;
     right:0;
     top:0;
-    margin-right: 8px;
+    margin-right: 7px;
     margin-top: 5px;
-    font-size: 15px;
+    font-size: 20px;
+}
+
+.modal-text {
+    padding: 0 25px 0 0 !important;
+    overflow-y: scroll;
+}
+
+.img_advert_modal {
+    padding-bottom: 15px;
+    padding-right: 20px;
 }
 
 /***************************
@@ -2027,6 +2231,10 @@ ul.social_icons li  a i{
 .gmap-area .map-content address h5{
   font-weight: 700;
   /* font-size: 16px; */
+}
+
+.gmap-area .center-block{
+    margin: 0 15.75%;
 }
 
 #contact-page{
@@ -2692,7 +2900,27 @@ shortcodes page css
 /* Scroller */
 
 .no-padding {
-    padding: 0;
+    padding: 0 !important;
+}
+
+.no-padding-top {
+    padding-top: 0 !important;
+}
+
+.no-padding-right {
+    padding-right: 0!important;
+}
+
+.no-padding-left {
+    padding-left: 0!important;
+}
+
+.no-margin-top {
+    margin-top: 0 !important;
+}
+
+no-fixed-height {
+    height: auto !important;
 }
 
 .full-width {
@@ -2703,9 +2931,19 @@ shortcodes page css
     margin-bottom:0;
 }
 
+.block-center {
+    margin: 0 auto;
+}
+
+.margin-top-40 {
+    margin-top: 40px;
+}
+
 @media screen and (max-width: 980px) {
     #feature {
         height: auto;
     }
 }
+
+
 

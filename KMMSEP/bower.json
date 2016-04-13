@@ -18,7 +18,8 @@
   "dependencies": {
     "jquery": "^2.2.2",
     "bootstrap": "^3.3.6",
-    "angular": "angularjs#^1.5.3"
+    "angular": "angularjs#^1.5.3",
+    "angular-ui-router-anim-in-out": "^1.0.2"
   },
   "resolutions": {
     "jquery": "^2.2.2"

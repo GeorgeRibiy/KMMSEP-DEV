@@ -1,0 +1,17 @@
+﻿<div class="col-lg-12 form-sign-in-base">
+    <form class="form-signin" ng-model="signInForm" ng-submit="signIn()">
+        <h2 class="form-signin-heading">Увійти</h2>
+        <label for="inputEmail" class="sr-only">Email</label>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email" required="" autofocus="" ng-model="user_email">
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Пароль" required="" ng-model="user_password">
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" value="remember-me"> Запам'ятати мене
+            </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block margin-top-40" type="submit" ng-show="!processing">Підтвердити</button>
+        <md-progress-circular class="md-warn md-hue-2 block-center" md-diameter="70" md-mode="indeterminate" ng-show="processing"></md-progress-circular>
+        <p>{{signInResult}}</p>
+    </form>
+</div>

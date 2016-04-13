@@ -1,15 +1,26 @@
-﻿<div class="center">
-    <h4>Оголошення</h4>
+﻿<div class="center no-padding">
+    <h4>{{advert.heading}}</h4>
 </div>
 <div>
-    <div class="col-sm-6 col-md-4 advert">
-        <div class="media services-wrap wow fadeInDown">
+    <div class="col-sm-8 col-md-6 advert">
+        <div class="media services-wrap wow fadeInDown no-padding-top no-padding-right">
             <div class="media-body">
                 <h3 class="center no-padding"></h3>
                 <div class="pull-left">
-                    <img class="img-responsive img_advert" src="../images/temp.jpg">
+                    <img class="img-responsive img_advert_modal" src="../images/temp.jpg">
                 </div>
-                <p>text<p>
+                <p><b>Опубліковано : </b>{{advert.created}}<p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-8 col-md-6 advert no-padding-left">
+        <div class="media services-wrap wow fadeInDown modal-text">
+            <div class="media-body">
+                <h3 class="center no-padding "></h3>
+                <div class="pull-left">
+                    
+                </div>
+                <p>{{advert.text}}<p>
             </div>
         </div>
     </div>
