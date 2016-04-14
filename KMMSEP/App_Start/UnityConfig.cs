@@ -7,7 +7,8 @@ using KMMSEP.Domain.Services.IServices;
 using KMMSEP.Infrastructure.UnitOfWork;
 using KMMSEP.Infrastructure.IRepository;
 using KMMSEP.Infrastructure.Repository;
-
+using KMMSEP.API.Models.IMappers;
+using KMMSEP.API.Models.Mappers;
 
 namespace KMMSEP
 {
@@ -36,6 +37,7 @@ namespace KMMSEP
             container.RegisterType<IUnitOfWork, UnitOfWork>();
             container.RegisterType<IScheduleRepository, ScheduleRepository>();
             container.RegisterType<IScheduleService, ScheduleService>();
+            container.RegisterType<IScheduleMapper, ScheduleMapper>();
             
             
             // register all your components with the container here
