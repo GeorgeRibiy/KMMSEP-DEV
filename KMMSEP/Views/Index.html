@@ -40,11 +40,9 @@
                     </ul>
                 </div>
                 <div class="col-xs-1 col-sm-2 col-md-2 nav-authorization">
-                    <a href="" class="pull-right sign" id="sign-in" ng-click="openSignInModal($event)" ng-show="!signedIn">
-                        <i class="glyphicon glyphicon-log-in"></i>
-                    </a>
-                    <a href="" class="pull-right sign" id="sign-out" ng-click="signOut()" ng-show="signedIn">
-                        <i class="glyphicon glyphicon-log-out"></i>
+                    <a href="" class="pull-right sign" id="sign-in">
+                        <i class="glyphicon glyphicon-log-in" ng-click="openSignInModal($event)" ng-show="!signedIn"></i>
+                        <i class="glyphicon glyphicon-log-out" ng-click="signOut($event)" ng-show="signedIn"></i>
                     </a>
                     <p class="pull-right">{{greetingMessage || ""}}</p>
                 </div>
