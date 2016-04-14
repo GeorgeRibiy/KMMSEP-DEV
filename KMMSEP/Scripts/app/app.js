@@ -15,22 +15,27 @@ app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $u
             templateUrl: 'Views/Stuff.html',
             controller: 'StuffController'
         })
-        .state('/Photos', {
+        .state('Photos', {
             url: '/Photos',
-            templateUrl: 'Views/Photos.html'
+            templateUrl: 'Views/Parked.html'
         })
-        .state('/Articles', {
+        .state('Articles', {
             url: '/Articles',
-            templateUrl: 'Views/Articles.html'
+            templateUrl: 'Views/Parked.html'
         })
-        .state('/Contacts', {
+        .state('Contacts', {
             url: '/Contacts',
             templateUrl: 'Views/Contacts.html'
         })
-        .state('/Schedule', {
+        .state('Schedule', {
             url: '/Schedule',
             templateUrl: 'Views/Schedule.html',
             controller: 'ScheduleController'
+        })
+        .state('ResearchAvtivities', {
+            url: '/ResearchActivities',
+            templateUrl: 'Views/ResearchActivities.html',
+            controller: 'ResearchActivitiesController'
         })
     $urlRouterProvider.otherwise("/Home");
 }])

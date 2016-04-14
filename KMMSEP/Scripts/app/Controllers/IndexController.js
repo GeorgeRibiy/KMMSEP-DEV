@@ -1,4 +1,4 @@
-﻿app.controller('IndexController', ['$scope', '$location', '$mdDialog', '$mdMedia', 'CommonFunctionService', function ($scope, $location, $mdDialog, $mdMedia, CommonFunctionService) {
+﻿app.controller('IndexController', ['$rootScope', '$scope', '$location', '$mdDialog', '$mdMedia', 'CommonFunctionService', function ($rootScope, $scope, $location, $mdDialog, $mdMedia, CommonFunctionService) {
     var init = function () {
         $scope.activeness = ["", "", "", "", "", ""];
         checkLocation();
@@ -10,6 +10,10 @@
         
         $scope.greetingMessage = $scope.userName ? createGreeting($scope.userName) : 'Увійти';
         $scope.signedIn = checkIfSignedIn();
+
+        $rootScope.$on('$stateChangeSuccess', function () {
+            document.body.scrollTop = document.documentElement.scrollTop = 0;
+        });
     };
 
     var checkLocation = function () {
@@ -97,16 +101,24 @@
             targetEvent: ev,
             clickOutsideToClose: true,
             fullscreen: false,
-        })
-        .then(function () {
-            $scope.userName = CommonFunctionService.getCookie('kmmsep_user').name;
+            onRemoving: function () {
+                $scope.userName = CommonFunctionService.getCookie('kmmsep_user').name;
+            }
         })
     };
 
-    $scope.signOut = function () {
-        CommonFunctionService.deleteCookie('kmmsep_user');
-        $scope.signedIn = false;
-        $scope.userName = undefined;
+    $scope.signOut = function (ev) {
+        var confirm = $mdDialog.confirm()
+            .title('Ви впевнені, що хочете вийти?')
+            .targetEvent(ev)
+            .ok('Так, звісно')
+            .cancel('Ні');
+        $mdDialog.show(confirm)
+            .then(function () {
+                CommonFunctionService.deleteCookie('kmmsep_user');
+                $scope.signedIn = false;
+                $scope.userName = undefined;
+            })
     }
 
     $scope.$watch('userName', function (newValue, oldValue) {
@@ -114,8 +126,11 @@
         if (newValue != oldValue) {
             if (newValue != undefined) {
                 $scope.greetingMessage = createGreeting(newValue);
+                $scope.signedIn = true;
+                $scope.$apply;
             } else {
                 $scope.greetingMessage = 'Увійти';
+                $scope.signedIn = false;;
             }
         }
     })

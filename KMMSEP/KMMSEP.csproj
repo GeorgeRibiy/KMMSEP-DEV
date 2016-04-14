@@ -113,7 +113,9 @@
     <Content Include="Scripts\app\Controllers\HomeController.js" />
     <Content Include="Scripts\app\Controllers\IndexController.js" />
     <Content Include="Scripts\app\Controllers\LoadingIndicatorController.js" />
+    <Content Include="Scripts\app\Controllers\ResearchActivitiesController.js" />
     <Content Include="Scripts\app\Controllers\ScheduleController.js" />
+    <Content Include="Scripts\app\Controllers\SendMailController.js" />
     <Content Include="Scripts\app\Services\AdvertisementService.js" />
     <Content Include="Scripts\app\Services\AuthorizationService.js" />
     <Content Include="Scripts\app\Services\CommonFunctionsService.js" />
@@ -146,8 +148,10 @@
     <Content Include="Views\Modals\SignInModal.html">
       <BrowseToURL>~/Modals/SignInModal</BrowseToURL>
     </Content>
+    <Content Include="Views\Parked.html" />
     <Content Include="Views\Partials\LoadingIndicatorView.html" />
     <Content Include="Views\Photos.html" />
+    <Content Include="Views\ResearchActivities.html" />
     <Content Include="Views\Schedule.html" />
     <Content Include="Views\Stuff.html" />
     <Content Include="Web.config">
