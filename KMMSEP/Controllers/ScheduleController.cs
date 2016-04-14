@@ -20,9 +20,16 @@ namespace KMMSEP.Controllers
             _scheduleService = scheduleService;
         }
 
+        [HttpGet]
         public async Task<ScheduleModel> GetBySemesterAndCourseAsync(string course, string semester)
         {
             return await _scheduleService.ReturnBySemesterAndCourseAsync(course, semester);
         }
+
+        //[HttpGet]
+        //public async Task<ScheduleModel> GetBySemesterAndCourseAsync()
+        //{
+        //    return await _scheduleService.ReturnBySemesterAndCourseAsync("1", "1");
+        //}
     }
 }

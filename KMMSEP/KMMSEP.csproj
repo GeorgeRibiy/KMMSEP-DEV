@@ -197,6 +197,10 @@
       <Project>{448588d0-cb78-4c15-a950-7a25b7b40ad9}</Project>
       <Name>KMMSEP.Domain.Services</Name>
     </ProjectReference>
+    <ProjectReference Include="..\KMMSEP.Infrastructure\KMMSEP.Infrastructure.csproj">
+      <Project>{aca9514a-19cb-4fe4-971b-783b0fe01d6a}</Project>
+      <Name>KMMSEP.Infrastructure</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

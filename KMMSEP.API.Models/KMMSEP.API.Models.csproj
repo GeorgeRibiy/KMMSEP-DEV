@@ -44,7 +44,6 @@
     <Compile Include="ScheduleModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\KMMSEP.Domain.Models\KMMSEP.Domain.Models.csproj">
       <Project>{3825ea25-b406-43e0-b837-84df47996c30}</Project>

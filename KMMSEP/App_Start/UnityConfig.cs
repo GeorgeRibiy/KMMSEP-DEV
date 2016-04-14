@@ -4,6 +4,10 @@ using System.Web.Http;
 using Unity.WebApi;
 using KMMSEP.Domain.Services;
 using KMMSEP.Domain.Services.IServices;
+using KMMSEP.Infrastructure.UnitOfWork;
+using KMMSEP.Infrastructure.IRepository;
+using KMMSEP.Infrastructure.Repository;
+
 
 namespace KMMSEP
 {
@@ -29,7 +33,10 @@ namespace KMMSEP
 
         public static void RegisterTypes(IUnityContainer container)
         {
+            container.RegisterType<IUnitOfWork, UnitOfWork>();
+            container.RegisterType<IScheduleRepository, ScheduleRepository>();
             container.RegisterType<IScheduleService, ScheduleService>();
+            
             
             // register all your components with the container here
             // it is NOT necessary to register your controllers

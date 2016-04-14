@@ -23,7 +23,7 @@ namespace KMMSEP.Domain.Services
 
         public async Task<ScheduleModel> ReturnBySemesterAndCourseAsync(string course, string semester)
         {
-            var temp =   await _unitOfWork.ScheduleRepository.GetBySemesterAndCourseAsync(course, semester);
+            var temp =  await _unitOfWork.ScheduleRepository.GetBySemesterAndCourseAsync(course, semester);
             return _mapper.ToApiModel(temp);
         }
     }
