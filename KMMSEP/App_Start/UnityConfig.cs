@@ -4,6 +4,8 @@ using System.Web.Http;
 using Unity.WebApi;
 using KMMSEP.Domain.Services;
 using KMMSEP.Domain.Services.IServices;
+using KMMSEP.API.Models.IMappers;
+using KMMSEP.API.Models.Mappers;
 
 namespace KMMSEP
 {
@@ -30,6 +32,7 @@ namespace KMMSEP
         public static void RegisterTypes(IUnityContainer container)
         {
             container.RegisterType<IScheduleService, ScheduleService>();
+            container.RegisterType<IScheduleMapper, ScheduleMapper>();
             
             // register all your components with the container here
             // it is NOT necessary to register your controllers

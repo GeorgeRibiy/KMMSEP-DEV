@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace KMMSEP.Controllers
 {
-    [RoutePrefix("api/schedule")]
+    [RoutePrefix("api/Schedule")]
     public class ScheduleController : ApiController
     {
         private readonly IScheduleService _scheduleService;

@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using KMMSEP.API.Models;
-using KMMSEP.Domain.Models;
+using KMMSEP.API.Models.IMappers;
 using KMMSEP.Domain.Services.IServices;
 using KMMSEP.Infrastructure.UnitOfWork;
-using KMMSEP.API.Models.IMappers;
 
 namespace KMMSEP.Domain.Services
 {
@@ -16,9 +11,10 @@ namespace KMMSEP.Domain.Services
         private readonly IUnitOfWork _unitOfWork;
         private readonly IScheduleMapper _mapper;
 
-        public ScheduleService(IUnitOfWork unitOfWork)
+        public ScheduleService(IUnitOfWork unitOfWork, IScheduleMapper mapper)
         {
             _unitOfWork = unitOfWork;
+            _mapper = mapper;
         }
 
         public async Task<ScheduleModel> ReturnBySemesterAndCourseAsync(string course, string semester)
