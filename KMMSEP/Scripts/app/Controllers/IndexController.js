@@ -1,4 +1,4 @@
-﻿app.controller('IndexController', ['$scope', '$location', '$mdDialog', '$mdMedia', 'CommonFunctionService', function ($scope, $location, $mdDialog, $mdMedia, CommonFunctionService) {
+﻿app.controller('IndexController', ['$rootScope', '$scope', '$location', '$mdDialog', '$mdMedia', 'CommonFunctionService', function ($rootScope, $scope, $location, $mdDialog, $mdMedia, CommonFunctionService) {
     var init = function () {
         $scope.activeness = ["", "", "", "", "", ""];
         checkLocation();
@@ -10,6 +10,10 @@
         
         $scope.greetingMessage = $scope.userName ? createGreeting($scope.userName) : 'Увійти';
         $scope.signedIn = checkIfSignedIn();
+
+        $rootScope.$on('$stateChangeSuccess', function () {
+            document.body.scrollTop = document.documentElement.scrollTop = 0;
+        });
     };
 
     var checkLocation = function () {

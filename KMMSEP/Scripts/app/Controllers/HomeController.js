@@ -16,6 +16,14 @@
                 $location.path('/Stuff');
                 index = 2;
                 break;
+            case 'researchActivities':
+                $location.path('/ResearchActivities');
+                break;
+            case 'about':
+                $location.path('/About');
+                index = 1;
+                break;
+
         }
         $scope.$parent.changeActiveness(index);
     }
