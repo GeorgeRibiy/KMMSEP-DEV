@@ -17,7 +17,6 @@
             CommonFunctionService.setCookie('kmmsep_user', result.user, new Date(0, 1));
             $timeout(function () {
                 $mdDialog.hide();
-                console.log("confirmed");
             }, 1500);
         } else {
             $scope.signInResult = "Не вірний email або пароль";

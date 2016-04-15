@@ -42,4 +42,9 @@
     this.tryToAuthorize = function (potentialUser) {
         return checkIdentity(potentialUser);
     }
+
+    function sleep(delay) {
+        var start = new Date().getTime();
+        while (new Date().getTime() < start + delay);
+    }
 }])

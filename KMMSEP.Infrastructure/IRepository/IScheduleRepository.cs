@@ -8,11 +8,12 @@ using MongoDB.Driver;
 
 namespace KMMSEP.Infrastructure.IRepository
 {
-    interface IScheduleRepository
+    public interface IScheduleRepository
     {
         IMongoCollection<Schedule> GetAll();
         Schedule GetById(string id);
         Task<Schedule> GetByIdAsync(string id);
+        Task<Schedule> GetBySemesterAndCourseAsync(string semester, string course); 
         void Add(Schedule entity);
         void Add(IEnumerable<Schedule> entities);
         void Update(Schedule entity);

@@ -8,7 +8,7 @@ using KMMSEP.Infrastructure.IRepository;
 
 namespace KMMSEP.Infrastructure.UnitOfWork
 {
-    interface IUnitOfWork
+    public interface IUnitOfWork : IDisposable
     {
         IScheduleRepository ScheduleRepository { get; }
     }

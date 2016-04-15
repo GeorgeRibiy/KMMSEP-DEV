@@ -8,7 +8,7 @@ using KMMSEP.Domain.Models;
 
 namespace KMMSEP.Infrastructure
 {
-    class ScheduleContext : MongoDbContext
+    public class ScheduleContext : MongoDbContext
     {
         public IMongoCollection<Schedule> Shedules { get; set; }
         public ScheduleContext():base()

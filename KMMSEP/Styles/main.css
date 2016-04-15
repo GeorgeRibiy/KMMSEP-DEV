@@ -380,7 +380,7 @@ input.search-form:hover {
 **************************/
 
 .load-placeholder {
-    min-height: 89vh;
+    min-height: 91vh;
 }
 
 /*************************
@@ -563,7 +563,7 @@ input.search-form:hover {
 }
 
 #main-slider .carousel .slide-margin{
-  margin-top: 14%;
+  margin-top: 20%;
   margin-bottom: 14%;
 }
 
@@ -1972,6 +1972,19 @@ ul.social_icons li  a i{
   transition: none;
 }
 
+/**************************
+*** ResearchActivities ****
+**************************/
+
+#researchTargets {
+    font-size: 20px;
+    line-height: 24px;
+}
+
+#researchTargets li{
+    padding-bottom: 15px;
+}
+
 
 /**************************
 ********* Pricing Table CSS *
@@ -2956,5 +2969,9 @@ no-fixed-height {
     }
 }
 
+
+#viewer {
+    min-height: 91vh;
+}
 
 

@@ -9,7 +9,7 @@ using KMMSEP.Infrastructure.Repository;
 
 namespace KMMSEP.Infrastructure.UnitOfWork
 {
-    class UnitOfWork : IUnitOfWork
+    public class UnitOfWork : IUnitOfWork
     {
         private readonly MongoDbContext _context = new MongoDbContext();
         private IScheduleRepository _scheduleRepository; 
@@ -17,6 +17,11 @@ namespace KMMSEP.Infrastructure.UnitOfWork
         public IScheduleRepository ScheduleRepository
         {
             get { return _scheduleRepository ?? (_scheduleRepository = new ScheduleRepository()); }
+        }
+
+        public void Dispose()
+        {
+            GC.SuppressFinalize(this);
         }
     }
 }
