@@ -126,6 +126,7 @@
     <Content Include="Views\Modals\SignInModal.html">
       <BrowseToURL>~/Modals/SignInModal</BrowseToURL>
     </Content>
+    <Content Include="Views\Modals\SubjectModal.html" />
     <Content Include="Views\Partials\LoadingIndicatorView.html" />
     <Content Include="Views\Photos.html" />
     <Content Include="Views\Schedule.html" />

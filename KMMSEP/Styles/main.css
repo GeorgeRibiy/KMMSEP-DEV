@@ -16,9 +16,10 @@
 
 body {
   background: #fff;
-  font-family: 'Conv_Uni Sans Thin', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   color:#4e4e4e;
   line-height: 22px;
+  font-size: 16px;
 }
 * {
     outline: none;
@@ -1705,6 +1706,7 @@ ul.social_icons li  a i{
     background-position: center 118px;
     background-repeat: no-repeat;
     margin-bottom: 100px;
+    min-height: 418px;
 }
 
 .workers img {
@@ -1761,6 +1763,15 @@ ul.social_icons li  a i{
     right: 24px;
     display: inline-block;
     margin: 0 auto;
+}
+
+.worker-subjects-header {
+    text-align: center;
+}
+
+.worker-subjects {
+    font-size: 18px;
+    padding: 40px;
 }
 
 .footer {
